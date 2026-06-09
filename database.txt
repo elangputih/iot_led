@@ -1,0 +1,12 @@
+CREATE DATABASE iot_led;
+USE iot_led;
+
+CREATE TABLE device_status (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    device_name VARCHAR(50) NOT NULL,
+    status INT NOT NULL DEFAULT 0, -- 0 untuk MATI, 1 untuk NYALA
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- Masukkan data awal untuk ESP32
+INSERT INTO device_status (device_name, status) VALUES ('esp32_led', 0);
